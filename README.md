@@ -11,12 +11,12 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
 - NG-DBSCAN [6] : 
 
 ##3. Data Sets
-| Name          | # Object       | # Dim    | Size    | Type  |  Link   |
-| :------------ | :------------: | :------: |:-------:|:-----:|:-------:|
-| GeoLife       | 24,876,978     | 3        | 808 MB  | float |         |
-| Cosmo50       | 315,086,245    | 3        | 11.2 GB | float |         |
-| OpenStreetMap | 2,770,238,904  | 2        | 77.1 GB | float |         |
-| TeraClickLog  | 4,373,472,329  | 13       | 362 GB  | float |         |
+| Name           | # Object       | # Dim    | Size    | Type  |  Link   |
+| :------------: | :------------: | :------: |:-------:|:-----:|:-------:|
+| GeoLife        | 24,876,978     | 3        | 808 MB  | float |         |
+| Cosmo50        | 315,086,245    | 3        | 11.2 GB | float |         |
+| OpenStreetMap  | 2,770,238,904  | 2        | 77.1 GB | float |         |
+| TeraClickLog   | 4,373,472,329  | 13       | 362 GB  | float |         |
 
 ##4. Configuration
 
