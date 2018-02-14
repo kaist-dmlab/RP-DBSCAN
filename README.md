@@ -37,15 +37,12 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
 - Compile.
   - Download the spark library from [Apache Spark](http://spark.apache.org/downloads.html).
   - Make a _jar file_ using IDE tools. For example, you can easily make it using Eclipse through **_project name->export->jar file_**. It is possible that you just download the jar file from [jar](jar) folder.
-
 - Create _Azure HDInsight_ instances.
  - Refer to [HDInsight Document](https://docs.microsoft.com/en-us/azure/hdinsight/).
-
 - Move the data sets into the _HDFS_.
  - Download all data sets from the above links and move them to the _Azure master node_.
  - Transfer your data sets from the _Azure master node_ into _HDFS_.</br>
   **``hadoop dfs - put [input_data_path] [hdfs_path]``**
-
 - Run the algorithm using the following command:
  - RP_DBSCAN</br>
  **``hadoop jar [jar_file] [main_class] [hdfs_input_path] [numOfPartitions] [rho] [dim] [minPtr] [epsilon]``**
