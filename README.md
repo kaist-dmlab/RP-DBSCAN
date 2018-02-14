@@ -44,11 +44,11 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
 - Move the data sets into the _HDFS_.
  - Download all data sets from the above links and move them to the _Azure master node_.
  - Transfer your data sets from the _Azure master node_ into _HDFS_.</br>
-  **''hadoop dfs - put [input_data_path] [hdfs_path] ''**
+  **``hadoop dfs - put [input_data_path] [hdfs_path]``**
 
 - Run the algorithm using the following command:
  - RP_DBSCAN</br>
- **''hadoop jar [jar_file] [main_class] [hdfs_input_path] [numOfPartitions] [rho] [dim] [minPtr] [epsilon]''**
+ **``hadoop jar [jar_file] [main_class] [hdfs_input_path] [numOfPartitions] [rho] [dim] [minPtr] [epsilon]``**
  
 ## 6. Example
 
