@@ -34,7 +34,9 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
  - RP-DBSCAN algorithm was written in the Java programming language and run on JDK 1.8.0_131.
 
 ## 5. How to run
-
+- Compile.
+  - Download the spark library from [Apache Spark](http://spark.apache.org/downloads.html).
+  - Make a _jar file_ using IDE tools. For example, you can easily make it using Eclipse through **_project name->export->jar file_**. It is possible that you just download the jar file from [jar](jar) folder.
 ## 6. Example
 
 ## 7. Experiment
