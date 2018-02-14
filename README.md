@@ -44,8 +44,9 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
   - Transfer your data sets from the _Azure master node_ into _HDFS_.</br>
   **``hadoop dfs - put [input_data_path] [hdfs_path]``**
 - Run the algorithm using the following command:
-  - RP_DBSCAN</br>
-  **``hadoop jar [jar_file] [main_class] [hdfs_input_path] [numOfPartitions] [rho] [dim] [minPtr] [epsilon]``**
+  - RP_DBSCAN </br>
+  **``spark-submit --class main_class jar_file -i inputPath -np numOfPartitions -rho rhoValue -dim numOfDimensions -eps epsilonValue -minPts minPtsValue``**</br>
+  
  
 ## 6. Example
 
