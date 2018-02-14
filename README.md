@@ -49,5 +49,3 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
  
 ## 6. Example
 
-
-## 7. Experiment
