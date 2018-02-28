@@ -1,6 +1,6 @@
 # RP-DBSCAN: A Superfast Parallel DBSCAN Algorithm Based on Random Partitioning
 > **Publication** </br>
-> Song, H. and Lee, J., "RP-DBSCAN: A Superfast Parallel DBSCAN Algorithm Based on Random Partitioning," In Proc. 2018 ACM Int'l Conf. on Management of Data (SIGMOD), Houston, Texas, June 2018. 
+> Song, H. and Lee, J., "RP-DBSCAN: A Superfast Parallel DBSCAN Algorithm Based on Random Partitioning," __*In Proc. 2018 ACM Int'l Conf. on Management of Data (SIGMOD)*__, Houston, Texas, June 2018. 
 
 
 ## 1. Overview
