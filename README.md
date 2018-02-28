@@ -15,12 +15,12 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
 - NG-DBSCAN [6] 
 - **RP-DBSCAN** : Spark implementation of our algorithm
 
->_Reference_</br>
-[1] Martin Ester, Hans-Peter Kriegel, J¨org Sander, and Xiaowei Xu. 1996. A Density-Based Algorithm for Discovering Clusters in Large Spatial Databases with Noise. In Proc. 2nd Int’l Conf. on Knowledge Discovery and Data Mining. 226–231.</br>
-[2] Yaobin He, Haoyu Tan, Wuman Luo, Shengzhong Feng, and Jianping Fan. 2014. MR-DBSCAN: A Scalable MapReduce-based DBSCAN Algorithm for Heavily Skewed Data. Frontiers of Computer Science 8, 1 (2014), 83–99.</br>
-[3] Irving Cordova and Teng-Sheng Moh. 2015. DBSCAN on Resilient Distributed Datasets. In Proc. 2015 Int’l Conf. on High Performance Computing & Simulation. 531–540.</br>
-[4] Bi-Ru Dai and I-Chang Lin. 2012. Efficient Map/Reduce-Based DBSCAN Algorithm with Optimized Data Partition. In Proc. 2012 IEEE Int’l Conf. on Cloud Computing. 59–66.</br>
-[5] Alessandro Lulli, Matteo Dell’Amico, Pietro Michiardi, and Laura Ricci. 2016. NG-DBSCAN: Scalable Density-Based Clustering for Arbitrary Data. Proceedings of the VLDB Endowment 10, 3 (2016), 157–168.
+>__*Reference*__</br>
+[1] Martin Ester, Hans-Peter Kriegel, J¨org Sander, and Xiaowei Xu. 1996. A Density-Based Algorithm for Discovering Clusters in Large Spatial Databases with Noise. *In Proc. 2nd Int’l Conf. on Knowledge Discovery and Data Mining*. 226–231.</br>
+[2] Yaobin He, Haoyu Tan, Wuman Luo, Shengzhong Feng, and Jianping Fan. 2014. MR-DBSCAN: A Scalable MapReduce-based DBSCAN Algorithm for Heavily Skewed Data. *Frontiers of Computer Science* 8, 1 (2014), 83–99.</br>
+[3] Irving Cordova and Teng-Sheng Moh. 2015. DBSCAN on Resilient Distributed Datasets. *In Proc. 2015 Int’l Conf. on High Performance Computing & Simulation*. 531–540.</br>
+[4] Bi-Ru Dai and I-Chang Lin. 2012. Efficient Map/Reduce-Based DBSCAN Algorithm with Optimized Data Partition. *In Proc. 2012 IEEE Int’l Conf. on Cloud Computing*. 59–66.</br>
+[5] Alessandro Lulli, Matteo Dell’Amico, Pietro Michiardi, and Laura Ricci. 2016. NG-DBSCAN: Scalable Density-Based Clustering for Arbitrary Data. *Proceedings of the VLDB Endowment* 10, 3 (2016), 157–168.
 
 ## 3. Data Sets
 | Name           | # Object       | # Dim    | Size    | Type  |  Link   |
