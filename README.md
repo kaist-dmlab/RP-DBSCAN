@@ -46,15 +46,15 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
   hadoop dfs -put input_data_path hdfs_path
   ```
 - Run **RP-DBSCAN** algorithm.
-  >Necessary algorithm parameters
+  - Necessary algorithm parameters
   ```
-   -i : the hdfs path for input dataset.
-   -o : the local path to write the meta result of clustering.
-   -np : the number of cores or partitions which you want to set.
-   -rho : approximation rate.
-   -dim : dimension of dataset.
-   -minPts : minumum number of points in neighborhood to be core point.
-   -eps : region query boundary.
+   -i : the hdfs data path for input dataset.
+   -o : the local data path to write the meta result of clustering.
+   -np : the number of cpu cores ( or partitions which you want to set ).
+   -rho : the approximation parameter
+   -dim : the number of dimensions.
+   -minPts : the minimum number of neighbor points.
+   -eps : the radius of a neighborhood.
   ```
   ```
   spark-submit --class main_class jar_file -i inputPath -np numOfPartitions -rho rhoValue -dim numOfDimensions -eps epsilonValue -minPts minPtsValue
