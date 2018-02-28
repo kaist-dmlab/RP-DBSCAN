@@ -40,7 +40,7 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
 ## 5. How to run
 - Compile.
   - Download the spark library from [Apache Spark](http://spark.apache.org/downloads.html).
-  - Make a _jar file_ using IDE tools. For example, you can easily make it using Eclipse through **_project name->export->jar file_**. It is possible that you just download the jar file from [Jar](Jar) folder.
+  - Make a _jar file_ using IDE tools. For example, you can easily make it using Eclipse through **_project name->export->jar file_**. It is possible that you just download the jar file in [Jar](Jar) folder.
 - Create _Azure HDInsight_ instances.
   - Refer to [HDInsight Document](https://docs.microsoft.com/en-us/azure/hdinsight/).
 - Move the data sets into the _HDFS_.
@@ -50,7 +50,7 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
   hadoop dfs -put localPathForInputData hdfsPathForInputData
   ```
 - Run **RP-DBSCAN** algorithm.
-  - Necessary algorithm parameters
+  - Necessary algorithm parameters.
   ```
    -i : the hdfs data path for input dataset.
    -o : the local data path to write the meta result of clustering.
@@ -60,8 +60,14 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
    -minPts : the minimum number of neighbor points.
    -eps : the radius of a neighborhood.
   ```
+  - Optional algorithm parameters.
   ```
-  spark-submit --class main_class jar_file -i inputPath -np numOfPartitions -rho rhoValue -dim numOfDimensions -eps epsilonValue -minPts minPtsValue
+			-bs : the block size for virtually combining two-level cell dictionary. (default : 1)");
+			-l : the hdfs path to write the labeled point pairs, <pointId, label>. (default : no output)");
+  ```  
+  - Execution commend.
+  ```
+  spark-submit --class main_class jarFile -i inputPath -np numOfPartitions -rho rhoValue -dim numOfDimensions -eps epsilonValue -minPts minPtsValue
   ```
   
  
