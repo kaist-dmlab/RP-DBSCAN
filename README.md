@@ -63,7 +63,7 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
   - Optional algorithm parameters.
    ```
    -bs : the block size for virtually combining two-level cell dictionary. (default : 1)");
-   -l : the hdfs path to write labeled points, <pointId, cluster label>. (default : no output)");
+   -l : the hdfs path to write labeled points, <point id, cluster label>. (default : no output)");
    ```  
   - Execution commend.
    ```
