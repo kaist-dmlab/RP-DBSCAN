@@ -53,7 +53,7 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
   - Necessary algorithm parameters.
     ```
     -i : the hdfs path for input data set.
-    -o : the local path to write the meta result of clustering.
+    -o : the local path to write the meta result of clustering (e.g., # of (sub-)cells, # of points for each cluster).
     -np : the total number of cpu cores ( or partitions which you want to set ).
     -rho : the approximation parameter
     -dim : the number of dimensions.
