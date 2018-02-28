@@ -52,9 +52,9 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
 - Run **RP-DBSCAN** algorithm.
   - Necessary algorithm parameters.
     ```
-    -i : the hdfs data path for input dataset.
-    -o : the local data path to write the meta result of clustering.
-    -np : the number of cpu cores ( or partitions which you want to set ).
+    -i : the hdfs path for input data set.
+    -o : the local path to write the meta result of clustering.
+    -np : the total number of cpu cores ( or partitions which you want to set ).
     -rho : the approximation parameter
     -dim : the number of dimensions.
     -minPts : the minimum number of neighbor points.
