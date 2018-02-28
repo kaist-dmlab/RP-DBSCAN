@@ -67,7 +67,7 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
    ```  
   - Execution commend.
    ```
-   spark-submit --class main_class jarFile -i inputPath -np numOfPartitions -rho rhoValue -dim numOfDimensions -eps epsilonValue -minPts minPtsValue
+   spark-submit --class main_class jarFile -i hdfsInputPath -o localOutputPath -np numOfPartitions -rho rhoValue -dim numOfDimensions -eps epsilonValue -minPts minPtsValue
    ```
   
  
