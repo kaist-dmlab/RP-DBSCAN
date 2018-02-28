@@ -62,12 +62,12 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
   ```
   - Optional algorithm parameters.
   ```
-			-bs : the block size for virtually combining two-level cell dictionary. (default : 1)");
-			-l : the hdfs path to write the labeled point pairs, <pointId, label>. (default : no output)");
+   -bs : the block size for virtually combining two-level cell dictionary. (default : 1)");
+   -l : the hdfs path to write the labeled point pairs, <pointId, label>. (default : no output)");
   ```  
   - Execution commend.
   ```
-  spark-submit --class main_class jarFile -i inputPath -np numOfPartitions -rho rhoValue -dim numOfDimensions -eps epsilonValue -minPts minPtsValue
+   spark-submit --class main_class jarFile -i inputPath -np numOfPartitions -rho rhoValue -dim numOfDimensions -eps epsilonValue -minPts minPtsValue
   ```
   
  
