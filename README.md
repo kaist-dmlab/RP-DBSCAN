@@ -51,24 +51,24 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
    ```
 - Run **RP-DBSCAN** algorithm.
   - Necessary algorithm parameters.
-   ```
-   -i : the hdfs data path for input dataset.
-   -o : the local data path to write the meta result of clustering.
-   -np : the number of cpu cores ( or partitions which you want to set ).
-   -rho : the approximation parameter
-   -dim : the number of dimensions.
-   -minPts : the minimum number of neighbor points.
-   -eps : the radius of a neighborhood.
-   ```
+    ```
+    -i : the hdfs data path for input dataset.
+    -o : the local data path to write the meta result of clustering.
+    -np : the number of cpu cores ( or partitions which you want to set ).
+    -rho : the approximation parameter
+    -dim : the number of dimensions.
+    -minPts : the minimum number of neighbor points.
+    -eps : the radius of a neighborhood.
+    ```
   - Optional algorithm parameters.
-   ```
-   -bs : the block size for virtually combining two-level cell dictionary. (default : 1)");
-   -l : the hdfs path to write labeled points, <point id, cluster label>. (default : no output)");
-   ```  
+    ```
+    -bs : the block size for virtually combining two-level cell dictionary. (default : 1)");
+    -l : the hdfs path to write labeled points, <point id, cluster label>. (default : no output)");
+    ```  
   - Execution commend.
-   ```
-   spark-submit --class mainClass jarFile -i hdfsInputPath -o localOutputPath -np numOfPartitions -rho rhoValue -dim numOfDimensions -eps epsilonValue -minPts minPtsValue
-   ```
+    ```
+    spark-submit --class mainClass jarFile -i hdfsInputPath -o localOutputPath -np numOfPartitions -rho rhoValue -dim numOfDimensions -eps epsilonValue -minPts minPtsValue
+    ```
   
  
 ## 6. Example
