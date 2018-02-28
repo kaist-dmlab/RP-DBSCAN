@@ -46,12 +46,12 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
 - Move the data sets into the _HDFS_.
   - Download all data sets from the above links and move them to the _Azure master node_.
   - Transfer your data sets from the _Azure master node_ into _HDFS_.</br>
-  ```
-  hadoop dfs -put localPathForInputData hdfsPathForInputData
-  ```
+   ```
+   hadoop dfs -put localPathForInputData hdfsPathForInputData
+   ```
 - Run **RP-DBSCAN** algorithm.
   - Necessary algorithm parameters.
-  ```
+   ```
    -i : the hdfs data path for input dataset.
    -o : the local data path to write the meta result of clustering.
    -np : the number of cpu cores ( or partitions which you want to set ).
@@ -59,16 +59,16 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
    -dim : the number of dimensions.
    -minPts : the minimum number of neighbor points.
    -eps : the radius of a neighborhood.
-  ```
+   ```
   - Optional algorithm parameters.
-  ```
+   ```
    -bs : the block size for virtually combining two-level cell dictionary. (default : 1)");
    -l : the hdfs path to write the labeled point pairs, <pointId, cluster label>. (default : no output)");
-  ```  
+   ```  
   - Execution commend.
-  ```
+   ```
    spark-submit --class main_class jarFile -i inputPath -np numOfPartitions -rho rhoValue -dim numOfDimensions -eps epsilonValue -minPts minPtsValue
-  ```
+   ```
   
  
 ## 6. Example
