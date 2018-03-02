@@ -156,7 +156,7 @@ Pid Label
  ```
 
  - Plotting of the clustering result
-  - The source code for generating R_input.txt to plot the result in [Plotting](Plotting).
+  - The source code for generating _R_input.txt_ to plot the clustering result is in [Plotting](Plotting).
   - plotting commend using R.
   
   ```
