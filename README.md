@@ -38,20 +38,20 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
  - RP-DBSCAN algorithm was written in the Java programming language and run on JDK 1.8.0_131.
 
 ## 5. How to run
-- Compile.
+- Compile
   - Download the spark library from [Apache Spark](http://spark.apache.org/downloads.html).
   - Add the spark library to your java project with the source code in [RP-DBSCAN](RP-DBSCAN) folder.
   - Make a _jar file_ using IDE tools. For example, you can easily make it using Eclipse through *project name->export->jar file*. It is possible that you just download the jar file in [Jar](Jar) folder.
-- Create _Azure HDInsight_ instances.
+- Create _Azure HDInsight_ instances
   - Refer to [HDInsight Document](https://docs.microsoft.com/en-us/azure/hdinsight/).
-- Move the data sets into the _HDFS_.
+- Move the data sets into the _HDFS_
   - Download all data sets from the above links and move them to the _Azure master node_.
   - Transfer your data sets from the _Azure master node_ into _HDFS_.</br>
    ```
     hdfs dfs -put localPathForInputData hdfsPathForInputData
    ```
-- Run **RP-DBSCAN** algorithm.
-  - Necessary algorithm parameters.
+- Run **RP-DBSCAN** algorithm
+  - Necessary algorithm parameters
    ```
     -i : the hdfs file/dir path for input data set.
     -o : the local file path to write the meta result of clustering (e.g., # of (sub-)cells, # of points for each cluster).
@@ -61,18 +61,18 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
     -minPts : the minimum number of neighbor points.
     -eps : the radius of a neighborhood.
    ```
-  - Optional algorithm parameters.
+  - Optional algorithm parameters
    ```
     -bs : the block size for virtually combining two-level cell dictionary (default : 1).");
     -l : the hdfs dir path to write labeled points, <point id, cluster label>, (default : no output).");
    ```  
-  - Execution commend.
+  - Execution commend
    ```
     spark-submit --class mainClass jarFile -i hdfsInputPath -o localOutputPath -np numOfPartitions -rho rhoValue -dim numOfDimensions -eps epsilonValue -minPts minPtsValue
    ```
  
 ## 6. Example
-- Synthetic data set (in [DataSet](Example/DataSet) folder). 
+- Synthetic data set (in [DataSet](Example/DataSet) folder)
 
  | Name           | # Object       | # Dim    | Size    | Type  | 
  | :------------: | :------------: | :------: |:-------:|:-----:|
@@ -155,8 +155,8 @@ Pid Label
 
  ```
 
- - Plotting of the clustering result
-  - The source code for generating _R_input.txt_ to plot the clustering result is in [Plotting](Plotting) folder.
+- Plotting of the clustering result
+  - The source code for generating _R_input.txt_ to plot the clustering result is in [Plotting](Plotting) folder.
   - plotting commend using R.
   
   ```
