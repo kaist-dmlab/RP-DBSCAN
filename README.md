@@ -83,7 +83,7 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
 - Spark parameter tunning in [MainDriver.java](RP_DBSCAN/src/dm/kaist/main/MainDriver.java)
 
  ```
- // You should set proper spark parameters considering your distributed processing environment.
+ // You should set proper spark configurations considering your distributed processing environment.
  // e.g., the number of instances = 5
  //       the number of cores in each executor = 4
  //       the size of executor memory = 20g
