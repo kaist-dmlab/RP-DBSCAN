@@ -3,9 +3,9 @@ package dm.kaist.graph;
 import java.io.Serializable;
 import java.util.List;
 
+import dm.kaist.dictionary.ApproximatedCell;
 import dm.kaist.io.ApproximatedPoint;
 import dm.kaist.io.Point;
-import dm.kaist.meta.ApproximatedCell;
 import dm.kaist.tree.Kdtree;
 
 public class LabeledCell  implements Serializable{

@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import dm.kaist.algorithm.Conf;
-import dm.kaist.meta.MetaData;
+import dm.kaist.dictionary.Dictionary;
 
 public class Point  implements Serializable{
 	public long id;
@@ -72,7 +72,7 @@ public class Point  implements Serializable{
 		return Arrays.hashCode(coords);
 	}
 
-	public int stateWithSphere(int lv_1_Id, float sqr_r, MetaData meta)
+	public int stateWithSphere(int lv_1_Id, float sqr_r, Dictionary meta)
 	{
 		float closestDist = 0;
 		float farthestDist = 0;

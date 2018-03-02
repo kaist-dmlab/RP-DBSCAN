@@ -52,9 +52,9 @@ public class FileIO {
 		if(fs.exists(metaResultPath))
 			fs.delete(metaResultPath,true);
 		
-		if(Conf.outputPath != null)
+		if(Conf.pairOutputPath != null)
 		{
-		Path writeResultPath = new Path(Conf.outputPath);
+		Path writeResultPath = new Path(Conf.pairOutputPath);
 		if(fs.exists(writeResultPath))
 			fs.delete(writeResultPath,true);
 		}
@@ -65,7 +65,7 @@ public class FileIO {
 		FileSystem fs = FileSystem.get(conf);
 		FileStatus[] status = fs.listStatus(new Path(dirPath));
 		List<String> metaPaths = new ArrayList<String>();
-		
+	
 		for(int i=0; i<status.length; i++)
 		{
 			String path = status[i].getPath().toString();

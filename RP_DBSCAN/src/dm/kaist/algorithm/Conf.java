@@ -7,18 +7,19 @@ import java.util.HashMap;
 import org.apache.commons.lang.ObjectUtils.Null;
 import org.apache.spark.SparkConf;
 
+import dm.kaist.dictionary.ApproximatedCell;
+import dm.kaist.dictionary.Cell;
 import dm.kaist.graph.Edge;
 import dm.kaist.graph.LabeledCell;
 import dm.kaist.io.ApproximatedPoint;
 import dm.kaist.io.Point;
-import dm.kaist.meta.ApproximatedCell;
-import dm.kaist.meta.Cell;
 
 public final class Conf  implements Serializable{
 	
 	//input parameters
 	public static String inputPath = null;
-	public static String outputPath = null;
+	public static String metaOutputPath = null;
+	public static String pairOutputPath = null;
 	public static int numOfPartitions = 0;
 	public static float rho = 0;
 	public static int dim = 0;
@@ -41,17 +42,20 @@ public final class Conf  implements Serializable{
 	{	
 		parseInputForm(args);
 		
-		if(inputPath == null || numOfPartitions <= 1 || rho == 0 || dim == 0 || minPts == 0 || epsilon == 0)
+		if(inputPath == null || metaOutputPath == null || numOfPartitions <= 1 || rho == 0 || dim == 0 || minPts == 0 || epsilon == 0)
 		{
-			System.out.println("Usage: <inputPath> <numOfPartitions> <rho> <dim> <minPtr> <epsilon> <optional : metaBlockWindow> <optional : outputPath>");
-			System.out.println("-i : the path for input dataset.");
-			System.out.println("-np : the number of cores or partitions which you want to set.");
-			System.out.println("-rho : approximation rate.");
-			System.out.println("-dim : dimension of dataset.");
-			System.out.println("-minPts : minumum number of points in neighborhood to be core point.");
-			System.out.println("-eps : region query boundary.");
-			System.out.println("-bs : block size for virtually combining two-level cell dictionary. (default : 1)");
-			System.out.println("-o : the path to write the clustering result. the result is written as <pointId, label> pairs.");
+			System.out.println("Your command must include the necessary parameters properly.");
+			System.out.println("1. Necessary parameters");
+			System.out.println(" -i : the hdfs path for input dataset.");
+			System.out.println(" -o : the local path to write the meta result of clustering (e.g., # of (sub-)cells, # of points for each cluster).");
+			System.out.println(" -np : the number of cores or partitions which you want to set.");
+			System.out.println(" -rho : the approximation parameter.");
+			System.out.println(" -dim : the number of dimensions.");
+			System.out.println(" -minPts : the minimum number of neighbor points.");
+			System.out.println(" -eps : the radius of a neighborhood.");
+			System.out.println("2. Optional parameters");
+			System.out.println(" -bs : the block size for virtually combining two-level cell dictionary (default : 1).");
+			System.out.println(" -l : the hdfs path to write labeled points, <point id, cluster label> (default : no output).");
 			System.exit(1);
 		}
 	}
@@ -71,7 +75,9 @@ public final class Conf  implements Serializable{
 			if(header.equals("-i"))
 				inputPath = value;
 			else if(header.equals("-o"))
-				outputPath = value;
+				metaOutputPath = value;
+			else if(header.equals("-l"))
+				pairOutputPath = value;
 			else if(header.equals("-np"))
 				numOfPartitions = Integer.parseInt(value);
 			else if(header.equals("-rho"))
@@ -96,16 +102,6 @@ public final class Conf  implements Serializable{
 				System.exit(1);
 			}
 		}
-
-		System.out.println("-i : " + inputPath);
-		System.out.println("-np : " + numOfPartitions);
-		System.out.println("-rho : " + rho);
-		System.out.println("-dim : " + dim);
-		System.out.println("-minPts : " + minPts);
-		System.out.println("-eps : " + epsilon);
-		System.out.println("-bs : " + metaBlockWindow);
-		if(outputPath != null)
-			System.out.println("-o : " + outputPath);
 		
 	}
 	
