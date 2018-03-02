@@ -98,5 +98,10 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
  hdfs dfs -put chameleon.ds /chameleon.ds
  
  // Run RP-DBSCAN on chameleon data set.
+ spark-submit --class dm.kaist.main.MainDriver RP_DBSCAN.jar -i addressOfHDFS/chameleon.ds -o output.txt -np 40 -rho 0.01 -dim 2 -eps 0.02 -minPts 100
+ 
+ // example of output.txt
+ 
  
  ```
+ 
