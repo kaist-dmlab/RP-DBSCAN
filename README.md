@@ -47,12 +47,12 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
 - Move the data sets into the _HDFS_
   - Download all data sets from the above links and move them to the _Azure master node_.
   - Transfer your data sets from the _Azure master node_ into _HDFS_.</br>
-   ```
+    ```
     hdfs dfs -put localPathForInputData hdfsPathForInputData
-   ```
+    ```
 - Run **RP-DBSCAN** algorithm
   - Necessary algorithm parameters
-   ```
+    ```
     -i : the hdfs file/dir path for input data set.
     -o : the local file path to write the meta result of clustering (e.g., # of (sub-)cells, # of points for each cluster).
     -np : the total number of cpu cores or partitions which you want to set.
@@ -60,16 +60,16 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
     -dim : the number of dimensions.
     -minPts : the minimum number of neighbor points.
     -eps : the radius of a neighborhood.
-   ```
+    ```
   - Optional algorithm parameters
-   ```
+    ```
     -bs : the block size for virtually combining two-level cell dictionary (default : 1).");
     -l : the hdfs dir path to write labeled points, <point id, cluster label>, (default : no output).");
-   ```  
+    ```  
   - Execution commend
-   ```
+    ```
     spark-submit --class mainClass jarFile -i hdfsInputPath -o localOutputPath -np numOfPartitions -rho rhoValue -dim numOfDimensions -eps epsilonValue -minPts minPtsValue
-   ```
+    ```
  
 ## 6. Example
 - Synthetic data set (in [DataSet](Example/DataSet) folder)
@@ -82,7 +82,7 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
 
 - Spark parameter tunning in [MainDriver.java](RP_DBSCAN/src/dm/kaist/main/MainDriver.java)
 
- ```
+  ```
  // You should set proper spark parameters considering your distributed processing environment.
  // e.g., the number of instances = 5
  //       the number of cores in each executor = 4
@@ -91,11 +91,11 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
  //       the size of heap memory = 2g
  
  (line 39) SparkConf sparkConf = Conf.setSparkConfiguration("5", "4", "20g", "10g", "2048");
- ```
+  ```
 
 - Commends
 
- ```
+  ```
  // Move chameleon data set from local disk into HDFS.
  hdfs dfs -put chameleon.ds /chameleon.ds
  
@@ -113,7 +113,7 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
  
 - Example of output.txt
 
-```
+ ```
 -i : wasb://dmcluster@dmclusterstorage.blob.core.windows.net/data/chameleon.ds
 -o : output.txt
 -np : 20
@@ -140,7 +140,7 @@ Total elapsed time : 18.127s
 
  ```
  
- - Example of a file in labeledOutput directory
+- Example of a file in labeledOutput directory
  
  ```
 //The coordinates of the data points are excluded to reduce the size of the output file.
@@ -159,8 +159,8 @@ Pid Label
   - The source code for generating _R_input.txt_ to plot the clustering result is in [Plotting](Plotting) folder.
   - plotting commend using R.
   
-  ```
+   ```
   result <- read.table("C:/R_input.txt", sep=" ")
   plot(result$V2,result$V3, col=result$V4, cex = 0.5)
-  ```
+   ```
 <img src="Example/Image/chameleon_result.png" width="250"> 
