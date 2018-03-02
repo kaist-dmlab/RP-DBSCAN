@@ -47,7 +47,7 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
   - Download all data sets from the above links and move them to the _Azure master node_.
   - Transfer your data sets from the _Azure master node_ into _HDFS_.</br>
     ```
-    hadoop dfs -put localPathForInputData hdfsPathForInputData
+    hdfs dfs -put localPathForInputData hdfsPathForInputData
     ```
 - Run **RP-DBSCAN** algorithm.
   - Necessary algorithm parameters.
@@ -71,10 +71,15 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
     ```
  
 ## 6. Example
-- Synthetic data sets (in [DataSet](Example/DataSet) folder). 
+- Synthetic data set (in [DataSet](Example/DataSet) folder). 
 
  | Name           | # Object       | # Dim    | Size    | Type  | 
  | :------------: | :------------: | :------: |:-------:|:-----:|
  | Chameleon      | 100,000        | 2        | 2.67 MB | float | 
 
+- Commends
 
+ ```
+ //Move chameleon data set from local disk to HDFS
+ hdfs dfs -put chameleon.ds /chameleon.ds
+ ```
