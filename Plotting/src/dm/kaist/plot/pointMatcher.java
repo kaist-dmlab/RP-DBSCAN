@@ -25,7 +25,7 @@ public class pointMatcher {
 		int dim = 2;
 
 		//The local path to write output file for plotting using R
-		String outputPath = "R_output";
+		String outputPath = "R_input.txt";
 		
 		File dir = new File(labeledOutput);
 		File[] files = dir.listFiles();
