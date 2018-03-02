@@ -144,8 +144,6 @@ Total elapsed time : 18.127s
 - Example of a file in labeledOutput directory
  
 ```
-//The coordinates of the data points are excluded to reduce the size of the output file.
-
 Pid Label
 15169 5
 20272 5
