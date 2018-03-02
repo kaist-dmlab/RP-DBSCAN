@@ -13,7 +13,7 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
 - RBP-DBSCAN [4] 
 - CBP-DBSCAN [2] 
 - NG-DBSCAN [6] 
-- **RP-DBSCAN** : Spark implementation of our algorithm
+- __*RP-DBSCAN*__ : Spark implementation of our algorithm
 
 >__*Reference*__</br>
 [1] Martin Ester, Hans-Peter Kriegel, J¨org Sander, and Xiaowei Xu. 1996. A Density-Based Algorithm for Discovering Clusters in Large Spatial Databases with Noise. *In Proc. 2nd Int’l Conf. on Knowledge Discovery and Data Mining*. 226–231.</br>
