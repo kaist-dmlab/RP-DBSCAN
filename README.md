@@ -107,7 +107,6 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
 -dim : 2
 -minPts : 160
 -eps : 0.02
--bs : 1
 
 The number of Cells : 2684
 The number of SubDictionaries : 1
