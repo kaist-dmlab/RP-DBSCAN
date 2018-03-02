@@ -88,7 +88,7 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
  //       the size of driver memory = 10g
  //       the size of heap memory = 2g
  
- (39 line) SparkConf sparkConf = Conf.setSparkConfiguration("5", "4", "20g", "10g", "2048");
+ (line 39) SparkConf sparkConf = Conf.setSparkConfiguration("5", "4", "20g", "10g", "2048");
  ```
 
 - Commends
