@@ -71,7 +71,7 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
     ```
  
 ## 6. Example
-- Synthetic data sets (in [Synthetic Data Set](Example/DataSet)) 
+- Synthetic data sets (in [DataSet](Example/DataSet) folder). 
 
  | Name           | # Object       | # Dim    | Size    | Type  | 
  | :------------: | :------------: | :------: |:-------:|:-----:|
