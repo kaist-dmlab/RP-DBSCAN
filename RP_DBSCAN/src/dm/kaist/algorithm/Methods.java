@@ -368,7 +368,7 @@ public class Methods implements Serializable {
 	
 			//serialization + gzip compression
 			FileSystem fs = FileSystem.get(conf);
-			BufferedOutputStream bw = new BufferedOutputStream(fs.create(new Path(Conf.metaFoler+"/"+metaFileName+"_"+(int)(Math.random()*10000))));
+			BufferedOutputStream bw = new BufferedOutputStream(fs.create(new Path(Conf.metaFoler+"/"+metaFileName+"_"+(int)(Math.random()*10000)+"_"+(int)(Math.random()*10000))));
 			GZIPOutputStream gz = new GZIPOutputStream(bw);
 			ObjectOutputStream obs = new ObjectOutputStream(gz);
 			obs.writeObject(meta);
