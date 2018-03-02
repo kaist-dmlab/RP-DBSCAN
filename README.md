@@ -156,5 +156,11 @@ Pid Label
  ```
 
  - Plotting of the clustering result
- 
+  - The source code for generating R_input.txt to plot the result in [Plotting](Plotting).
+  - plotting commend using R.
+  
+  ```
+  result <- read.table("C:/R_input.txt", sep=" ")
+  plot(result$V2,result$V3, col=result$V4, cex = 0.5)
+  ```
 <img src="Example/Image/chameleon_result.png" width="250"> 
