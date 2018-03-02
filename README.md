@@ -77,9 +77,25 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
  | :------------: | :------------: | :------: |:-------:|:-----:|
  | Chameleon      | 100,000        | 2        | 2.67 MB | float | 
 
+- Spark parameter tunning in [MainDriver.java](RP_DBSCAN/src/dm/kaist/main/MainDriver.java)
+
+ ```
+ // You should set proper spark parameters considering your distributed processing environment.
+ // e.g., the number of instances = 10
+ //       the number of cores in each executor = 4
+ //       the size of executor memory = 20g
+ //       the size of driver memory = 10g
+ //       the size of heap memory = 2g
+ 
+ (39 line) SparkConf sparkConf = Conf.setSparkConfiguration("10", "4", "20g", "10g", "2048");
+ ```
+
 - Commends
 
  ```
- //Move chameleon data set from local disk to HDFS
+ // Move chameleon data set from local disk to HDFS.
  hdfs dfs -put chameleon.ds /chameleon.ds
+ 
+ // Run RP-DBSCAN on chameleon data set.
+ 
  ```
