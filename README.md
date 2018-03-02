@@ -94,13 +94,20 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
 - Commends
 
  ```
- // Move chameleon data set from local disk to HDFS.
+ // Move chameleon data set from local disk into HDFS.
  hdfs dfs -put chameleon.ds /chameleon.ds
  
- // Run RP-DBSCAN on chameleon data set.
+ // Run RP-DBSCAN on chameleon data set (without writing labeled points).
  spark-submit --class dm.kaist.main.MainDriver RP_DBSCAN.jar -i addressOfHDFS/chameleon.ds -o output.txt -np 20 -rho 0.01 -dim 2 -eps 0.02 -minPts 180
-```
-
+ 
+ // Run RP-DBSCAN on chameleon data set (with writing labeled points).
+ // labeled output is written into HDFS
+  spark-submit --class dm.kaist.main.MainDriver RP_DBSCAN.jar -i addressOfHDFS/chameleon.ds -o output.txt -np 20 -rho 0.01 -dim 2 -eps 0.02 -minPts 180 -l labeledOutput.txt
+ ```
+ 
+ // Get labeledOutput files from HDFS into current directory
+ hdfs dfs -get labeledOutput .
+ 
 - Example of output.txt
 
 ```
@@ -130,3 +137,20 @@ Total elapsed time : 18.127s
 
  ```
  
+ - Example of labeledOutput.txt
+ 
+ ```
+Pid Label
+15169 5
+20272 5
+59512 5
+20270 5
+59506 5
+96722 1
+74315 1
+96733 1
+74319 1
+74313 1
+74309 1
+89075 1
+ ```
