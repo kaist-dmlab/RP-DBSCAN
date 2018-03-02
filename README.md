@@ -164,4 +164,5 @@ Pid Label
   result <- read.table("C:/R_input.txt", sep=" ")
   plot(result$V2,result$V3, col=result$V4, cex = 0.5)
   ```
+  
   <img src="Example/Image/chameleon_result.png" width="250"> 
