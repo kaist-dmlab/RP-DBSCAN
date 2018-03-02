@@ -40,7 +40,7 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
 ## 5. How to run
 - Compile
   - Download the spark library from [Apache Spark](http://spark.apache.org/downloads.html).
-  - Add the spark library to your java project with the source code in [RP-DBSCAN](RP-DBSCAN) folder.
+  - Add the spark library to your java project with the source code in [RP_DBSCAN](RP_DBSCAN) folder.
   - Make a _jar file_ using IDE tools. For example, you can easily make it using Eclipse through *project name->export->jar file*. It is possible that you just download the jar file in [Jar](Jar) folder.
 - Create _Azure HDInsight_ instances
   - Refer to [HDInsight Document](https://docs.microsoft.com/en-us/azure/hdinsight/).
