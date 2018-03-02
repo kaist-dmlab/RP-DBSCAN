@@ -103,10 +103,10 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
  // Run RP-DBSCAN on chameleon data set (with writing labeled points).
  // labeled output is written into HDFS
   spark-submit --class dm.kaist.main.MainDriver RP_DBSCAN.jar -i addressOfHDFS/chameleon.ds -o output.txt -np 20 -rho 0.01 -dim 2 -eps 0.02 -minPts 180 -l labeledOutput
- ```
  
  // Get labeledOutput files from HDFS into current directory
  hdfs dfs -get labeledOutput .
+  ```
  
 - Example of output.txt
 
