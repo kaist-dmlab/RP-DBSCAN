@@ -122,6 +122,7 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
 -eps : 0.02
 -minPts : 180
 -bs : 1
+-l : labeledOutput 
 
 The number of cells : 2684
 The number of sub-cells : 73020
