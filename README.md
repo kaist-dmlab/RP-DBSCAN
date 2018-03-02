@@ -78,6 +78,8 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
  | :------------: | :------------: | :------: |:-------:|:-----:|
  | Chameleon      | 100,000        | 2        | 2.67 MB | float | 
 
+<img src="Example/Image/chameleon_input.png" width="250"> 
+
 - Spark parameter tunning in [MainDriver.java](RP_DBSCAN/src/dm/kaist/main/MainDriver.java)
 
  ```
@@ -154,3 +156,5 @@ Pid Label
  ```
 
  - Plotting of the clustering result
+ 
+<img src="Example/Image/chameleon_result.png" width="250"> 
