@@ -114,7 +114,7 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
 - Example of output.txt
 
 ```
--i : wasb://dmcluster@dmclusterstorage.blob.core.windows.net/data/chameleon.ds
+-i : wasb://dmcluster@dmclusterstorage.blob.core.windows.net/chameleon.ds
 -o : output.txt
 -np : 20
 -rho : 0.01
