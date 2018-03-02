@@ -82,13 +82,13 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
 
  ```
  // You should set proper spark parameters considering your distributed processing environment.
- // e.g., the number of instances = 10
+ // e.g., the number of instances = 5
  //       the number of cores in each executor = 4
  //       the size of executor memory = 20g
  //       the size of driver memory = 10g
  //       the size of heap memory = 2g
  
- (39 line) SparkConf sparkConf = Conf.setSparkConfiguration("10", "4", "20g", "10g", "2048");
+ (39 line) SparkConf sparkConf = Conf.setSparkConfiguration("5", "4", "20g", "10g", "2048");
  ```
 
 - Commends
@@ -98,7 +98,7 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
  hdfs dfs -put chameleon.ds /chameleon.ds
  
  // Run RP-DBSCAN on chameleon data set.
- spark-submit --class dm.kaist.main.MainDriver RP_DBSCAN.jar -i addressOfHDFS/chameleon.ds -o output.txt -np 40 -rho 0.01 -dim 2 -eps 0.02 -minPts 100
+ spark-submit --class dm.kaist.main.MainDriver RP_DBSCAN.jar -i addressOfHDFS/chameleon.ds -o output.txt -np 20 -rho 0.01 -dim 2 -eps 0.02 -minPts 200
 ```
 
 - Example of output.txt
@@ -106,24 +106,27 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
 ```
 -i : wasb://dmcluster@dmclusterstorage.blob.core.windows.net/data/chameleon.ds
 -o : output.txt
--np : 40
+-np : 20
 -rho : 0.01
 -dim : 2
 -eps : 0.02
--minPts : 160
+-minPts : 180
 -bs : 1
 
-The number of Cells : 2684
-The number of Subcells : 73020
-The number of SubDictionaries : 1
-The number of Core Points : 87898
+The number of cells : 2684
+The number of sub-cells : 73020
+The number of sub-dictionaries : 1
+The number of core points : 85894
 
-The number of Clusters : 6
-Cluster 1 : 20002
-Cluster 2 : 22699
-Cluster 3 : 12142
-Cluster 4 : 20925
-Cluster 5 : 8203
+The number of clusters : 6
+Cluster 1 : 19956
+Cluster 2 : 22621
+Cluster 3 : 12103
+Cluster 4 : 20795
+Cluster 5 : 8189
 Cluster 6 : 8203
+
+Total elapsed time : 18.127s
+
  ```
  
