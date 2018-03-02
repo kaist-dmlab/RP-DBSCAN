@@ -54,7 +54,7 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
     ```
     -i : the hdfs path for input data set.
     -o : the local path to write the meta result of clustering (e.g., # of (sub-)cells, # of points for each cluster).
-    -np : the total number of cpu cores or partitions which you want to set ).
+    -np : the total number of cpu cores or partitions which you want to set.
     -rho : the approximation parameter
     -dim : the number of dimensions.
     -minPts : the minimum number of neighbor points.
@@ -62,8 +62,8 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
     ```
   - Optional algorithm parameters.
     ```
-    -bs : the block size for virtually combining two-level cell dictionary. (default : 1)");
-    -l : the hdfs path to write labeled points, <point id, cluster label>. (default : no output)");
+    -bs : the block size for virtually combining two-level cell dictionary (default : 1).");
+    -l : the hdfs path to write labeled points, <point id, cluster label>, (default : no output).");
     ```  
   - Execution commend.
     ```
