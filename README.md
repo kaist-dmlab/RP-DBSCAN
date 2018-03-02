@@ -69,7 +69,12 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
     ```
     spark-submit --class mainClass jarFile -i hdfsInputPath -o localOutputPath -np numOfPartitions -rho rhoValue -dim numOfDimensions -eps epsilonValue -minPts minPtsValue
     ```
-  
  
 ## 6. Example
+- Synthetic data sets (in [Synthetic Data Set](Example/DataSet)) 
+
+ | Name           | # Object       | # Dim    | Size    | Type  | 
+ | :------------: | :------------: | :------: |:-------:|:-----:|
+ | Chameleon      | 100,000        | 2        | 2.67 MB | float | 
+
 
