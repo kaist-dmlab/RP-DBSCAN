@@ -109,8 +109,8 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
 -np : 40
 -rho : 0.01
 -dim : 2
--minPts : 160
 -eps : 0.02
+-minPts : 160
 -bs : 1
 
 The number of Cells : 2684
