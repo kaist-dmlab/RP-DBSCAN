@@ -114,16 +114,16 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
 -bs : 1
 
 The number of Cells : 2684
-The number of subcells : 73020
+The number of Subcells : 73020
 The number of SubDictionaries : 1
 The number of Core Points : 87898
 
 The number of Clusters : 6
-cluster [1] : 20002
-cluster [2] : 22699
-cluster [3] : 12142
-cluster [4] : 20925
-cluster [5] : 8203
-cluster [6] : 8203
+Cluster 1 : 20002
+Cluster 2 : 22699
+Cluster 3 : 12142
+Cluster 4 : 20925
+Cluster 5 : 8203
+Cluster 6 : 8203
  ```
  
