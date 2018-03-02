@@ -53,8 +53,8 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
 - Run **RP-DBSCAN** algorithm.
   - Necessary algorithm parameters.
     ```
-    -i : the hdfs path for input data set.
-    -o : the local path to write the meta result of clustering (e.g., # of (sub-)cells, # of points for each cluster).
+    -i : the hdfs file/dir path for input data set.
+    -o : the local file path to write the meta result of clustering (e.g., # of (sub-)cells, # of points for each cluster).
     -np : the total number of cpu cores or partitions which you want to set.
     -rho : the approximation parameter
     -dim : the number of dimensions.
@@ -64,7 +64,7 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
   - Optional algorithm parameters.
     ```
     -bs : the block size for virtually combining two-level cell dictionary (default : 1).");
-    -l : the hdfs path to write labeled points, <point id, cluster label>, (default : no output).");
+    -l : the hdfs dir path to write labeled points, <point id, cluster label>, (default : no output).");
     ```  
   - Execution commend.
     ```
@@ -102,7 +102,7 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
  
  // Run RP-DBSCAN on chameleon data set (with writing labeled points).
  // labeled output is written into HDFS
-  spark-submit --class dm.kaist.main.MainDriver RP_DBSCAN.jar -i addressOfHDFS/chameleon.ds -o output.txt -np 20 -rho 0.01 -dim 2 -eps 0.02 -minPts 180 -l labeledOutput.txt
+  spark-submit --class dm.kaist.main.MainDriver RP_DBSCAN.jar -i addressOfHDFS/chameleon.ds -o output.txt -np 20 -rho 0.01 -dim 2 -eps 0.02 -minPts 180 -l labeledOutput
  ```
  
  // Get labeledOutput files from HDFS into current directory
@@ -137,7 +137,7 @@ Total elapsed time : 18.127s
 
  ```
  
- - Example of labeledOutput.txt
+ - Example of a file in labeledOutput directory
  
  ```
 Pid Label
