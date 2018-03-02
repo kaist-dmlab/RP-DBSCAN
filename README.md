@@ -100,8 +100,25 @@ Following the recent trends in big data processing, several parallel DBSCAN algo
  // Run RP-DBSCAN on chameleon data set.
  spark-submit --class dm.kaist.main.MainDriver RP_DBSCAN.jar -i addressOfHDFS/chameleon.ds -o output.txt -np 40 -rho 0.01 -dim 2 -eps 0.02 -minPts 100
  
- // example of output.txt
- 
- 
+ // Example of output.txt
+ -i : wasb://dmcluster@dmclusterstorage.blob.core.windows.net/data/chameleon.ds
+-np : 40
+-rho : 0.01
+-dim : 2
+-minPts : 160
+-eps : 0.02
+-bs : 1
+
+The number of Cells : 2684
+The number of SubDictionaries : 1
+The number of Core Points : 87898
+
+The number of Clusters : 6
+cluster [1] : 22699
+cluster [2] : 12142
+cluster [3] : 20974
+cluster [4] : 19990
+cluster [5] : 8216
+cluster [6] : 8205
  ```
  
