@@ -752,7 +752,7 @@ public class Methods implements Serializable {
 			}
 	}	
 
-	public static List<Partition> scalablePartition(List<Tuple2<List<Integer>, Long>> cellData, int dim, int maxNumOfSubcells, HashMap<List<Integer>, List<Integer>> cellIdToPartitionId)
+	public static Tuple2<Long, List<Partition>> scalablePartition(List<Tuple2<List<Integer>, Long>> cellData, int dim, int maxNumOfSubcells, HashMap<List<Integer>, List<Integer>> cellIdToPartitionId)
 	{
 		//As the number of dimensions increases, the number of meta blocks can be extremely increases. 
 		//Therefore, we limit the number of dimensions to apply BSP approach for dividing our two-level cell dictionary into multiple contiguous sub-dictionaries.
@@ -803,11 +803,13 @@ public class Methods implements Serializable {
 		}
 		
 		//If the size of value is not 1, then it is overlap Cell
-	
+		long numOfSubCells = 0;
 		for(Partition partition : wholePartitions)
 		{
 			for(Tuple2<List<Integer>, Long> cell : partition.subCells)
 			{
+				numOfSubCells += cell._2;
+				
 				List<Integer> cellId = cell._1;
 				if(!cellIdToPartitionId.containsKey(cellId))
 					cellIdToPartitionId.put(cellId, new ArrayList<Integer>());
@@ -848,7 +850,7 @@ public class Methods implements Serializable {
 		wholePartitions.removeAll(removedPartitions);
 		wholePartitions.addAll(addedPartitions);
 		
-		return wholePartitions;
+		return new Tuple2<Long, List<Partition>>(numOfSubCells, wholePartitions);
 	}
 	
 	//Cell sub-graph merger & Edge detection & Edge reduction

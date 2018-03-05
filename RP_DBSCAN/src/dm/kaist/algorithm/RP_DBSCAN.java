@@ -99,14 +99,9 @@ public class RP_DBSCAN implements Serializable {
 		//System.out.println("# of Blocks for virtually combining : " + numOfPtsInCell.size());
 				
 		HashMap<List<Integer>,List<Integer>> partitionIndex = new HashMap<List<Integer>,List<Integer>>();
-		List<Partition> wholePartitions = Methods.scalablePartition(numOfPtsInCell, Conf.dim, Conf.numOflvhCellsInMetaPartition/Conf.dim, partitionIndex);
-		
-		//Counts the number of subcells.
-		for(Partition partition : wholePartitions)
-			for(Tuple2<List<Integer>, Long> cell : partition.subCells)
-				numOfSubCells += cell._2;
-			
-		
+		Tuple2<Long, List<Partition>> metaInfoForVirtualCombining = Methods.scalablePartition(numOfPtsInCell, Conf.dim, Conf.numOflvhCellsInMetaPartition/Conf.dim, partitionIndex);
+		numOfSubCells = metaInfoForVirtualCombining._1;
+		List<Partition> wholePartitions = metaInfoForVirtualCombining._2;
 		numOfSubDictionaries = wholePartitions.size();	
 				
 		//Build Two-Level Cell Dictionary composed of multiple sub-dictionaries
@@ -116,29 +111,7 @@ public class RP_DBSCAN implements Serializable {
 		
 		//Re-partition the pseudo random partitions into Each Worker by a randomly assigned integer value for reducing the size of memory usage.
 		dataset = dataMap.mapToPair(new Methods.Repartition(Conf.numOfPartitions)).repartition(Conf.numOfPartitions).persist(StorageLevel.MEMORY_AND_DISK_SER());
-				
-		
-		//logging the number of points in each partition
-		
-		
-		List<Tuple2<Integer, List<Integer>>> temp = dataset.groupByKey().mapToPair(new Methods.logNumOfPtsInEachCell()).collect();
-		
-		for(Tuple2<Integer, List<Integer>> item : temp)
-		{
-			System.out.println("Partition "+item._1+"");
-			List<Integer> list = item._2;
-			//Collections.sort(list);
-			//Collections.reverse(list);
-			
-			for(Integer i : list)
-				System.out.print(i+" ");
-			
-			System.out.println("");
-		}
-		
-		sc.close();
-		System.exit(1);
-		
+
 		//Broadcast two-level cell dictionary to every workers.
 		try {
 			metaPaths = FileIO.broadCastData(sc, conf, Conf.metaFoler);
@@ -237,7 +210,7 @@ public class RP_DBSCAN implements Serializable {
 			System.out.println("CLUSTER ["+(entry.getKey()+1)+"] : "+ entry.getValue());
 		*/
 		
-		sc.close();
+	
 	}
 	
 	/**
