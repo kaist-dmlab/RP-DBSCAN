@@ -28,7 +28,7 @@ public final class Conf  implements Serializable{
 	public static int metaBlockWindow = 1;
 	public static boolean boost = false;
 	
-	//additional parameters
+	//parameters
 	public static String delimeter = " ";
 	public static String metaFoler = "DICTIONARY";
 	public static String convertTableFolder = "CONVERTS";

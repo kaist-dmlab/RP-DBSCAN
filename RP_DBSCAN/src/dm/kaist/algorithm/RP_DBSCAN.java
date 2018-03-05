@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
@@ -114,8 +115,30 @@ public class RP_DBSCAN implements Serializable {
 		metaDataSet.collect();
 		
 		//Re-partition the pseudo random partitions into Each Worker by a randomly assigned integer value for reducing the size of memory usage.
-		dataset = dataMap.mapToPair(new Methods.Repartition()).repartition(Conf.numOfPartitions).persist(StorageLevel.MEMORY_AND_DISK_SER());
+		dataset = dataMap.mapToPair(new Methods.Repartition(Conf.numOfPartitions)).repartition(Conf.numOfPartitions).persist(StorageLevel.MEMORY_AND_DISK_SER());
 				
+		
+		//logging the number of points in each partition
+		
+		
+		List<Tuple2<Integer, List<Integer>>> temp = dataset.groupByKey().mapToPair(new Methods.logNumOfPtsInEachCell()).collect();
+		
+		for(Tuple2<Integer, List<Integer>> item : temp)
+		{
+			System.out.println("Partition "+item._1+"");
+			List<Integer> list = item._2;
+			//Collections.sort(list);
+			//Collections.reverse(list);
+			
+			for(Integer i : list)
+				System.out.print(i+" ");
+			
+			System.out.println("");
+		}
+		
+		sc.close();
+		System.exit(1);
+		
 		//Broadcast two-level cell dictionary to every workers.
 		try {
 			metaPaths = FileIO.broadCastData(sc, conf, Conf.metaFoler);

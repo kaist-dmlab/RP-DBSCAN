@@ -36,7 +36,7 @@ public class MainDriver {
 		Conf.setInputParameters(args);
 		
 		//You should change spark configurations to achieve the best performance with considering your system environment.
-		SparkConf sparkConf = Conf.setSparkConfiguration("5", "4", "20g", "10g", "2048");
+		SparkConf sparkConf = Conf.setSparkConfiguration("10", "4", "20g", "10g", "2048");
 		JavaSparkContext sc = new JavaSparkContext(sparkConf);
 
 		long start, end;

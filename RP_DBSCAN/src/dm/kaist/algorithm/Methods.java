@@ -269,13 +269,67 @@ public class Methods implements Serializable {
 	
 	public static class Repartition implements PairFunction<Tuple2<List<Integer>,ApproximatedCell>, Integer, ApproximatedCell>
 	{
-
+		public int numOfPartitions = 0;
+		
+		public Repartition(int numOfPartitions)
+		{
+			this.numOfPartitions = numOfPartitions;
+		}
+		
 		@Override
 		public Tuple2<Integer, ApproximatedCell> call(Tuple2<List<Integer>, ApproximatedCell> arg0) throws Exception {
 			// TODO Auto-generated method stub
-			return new Tuple2<Integer, ApproximatedCell>((int)(Math.random()*Conf.numOfPartitions), arg0._2);
+	
+			return new Tuple2<Integer, ApproximatedCell>((int)(Math.random()*numOfPartitions), arg0._2);
 		}
 	}
+	
+	//
+	public static class logNumOfPtsInEachCell implements PairFunction<Tuple2<Integer,Iterable<ApproximatedCell>>, Integer, List<Integer>>
+	{
+
+		@Override
+		public Tuple2<Integer, List<Integer>> call(Tuple2<Integer, Iterable<ApproximatedCell>> arg0) throws Exception {
+			// TODO Auto-generated method stub
+			
+			List<Integer> ptsSet = new ArrayList<Integer>();
+			
+			//for(ApproximatedCell cell : arg0._2)
+			//	ptsSet.add(cell.getRealPtsCount());
+			//return new Tuple2<Integer, List<Integer>>(arg0._1, ptsSet);
+			
+			//sum, max, min, average, median
+			int sum = 0, max = Integer.MIN_VALUE, min = Integer.MAX_VALUE, average = 0, median = 0;
+			
+			int size = 0;
+			for(ApproximatedCell cell : arg0._2)
+			{
+				int cur = cell.getRealPtsCount();
+				ptsSet.add(cur);
+				
+				sum += cur;
+				
+				if(max < cur)
+					max = cur;
+				
+				if(min > cur)
+					min = cur;
+				
+				size ++;
+			}
+			
+			average = sum/size;
+			median = ptsSet.get(size/2);
+			
+			List<Integer> summary = new ArrayList<Integer>();
+			summary.add(sum); summary.add(max); summary.add(min); summary.add(average); summary.add(median);
+			
+			return new Tuple2<Integer, List<Integer>>(arg0._1, summary);
+		}
+		
+	}
+
+	//
 
 	public static class CountCorePts implements PairFunction<Tuple2<Long,ApproximatedCell>, Integer, Long>
 	{
