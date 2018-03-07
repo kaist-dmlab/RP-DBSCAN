@@ -86,7 +86,7 @@ public class RP_DBSCAN implements Serializable {
 			.combineByKey(new Methods.CreateLocalApproximatedPoint(Conf.dim, Conf.epsilon, Conf.rho), new Methods.LocalApproximation(Conf.dim, Conf.epsilon, Conf.rho), new Methods.GlobalApproximation(Conf.dim))
 			.mapToPair(new Methods.PseudoRandomPartition2(Conf.metaBlockWindow)).persist(StorageLevel.MEMORY_AND_DISK_SER());
 		}else
-			dataMap = lines.mapToPair(new Methods.PointToCell(Conf.dim, Conf.epsilon)).groupByKey().mapToPair(new Methods.PseudoRandomPartition(Conf.dim, Conf.epsilon, Conf.rho, Conf.metaBlockWindow)).persist(StorageLevel.MEMORY_AND_DISK_SER());
+			dataMap = lines.mapToPair(new Methods.PointToCell(Conf.dim, Conf.epsilon)).groupByKey().mapToPair(new Methods.PseudoRandomPartition(Conf.dim, Conf.epsilon, Conf.rho, Conf.metaBlockWindow, Conf.pairOutputPath)).persist(StorageLevel.MEMORY_AND_DISK_SER());
 
 		numOfCells = dataMap.count();
 	

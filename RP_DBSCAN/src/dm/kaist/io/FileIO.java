@@ -66,14 +66,19 @@ public class FileIO {
 		FileStatus[] status = fs.listStatus(new Path(dirPath));
 		List<String> metaPaths = new ArrayList<String>();
 	
+		long size = 0;
+		
 		for(int i=0; i<status.length; i++)
 		{
 			String path = status[i].getPath().toString();
 			String fileName = status[i].getPath().getName();
 			sc.addFile(path);
 			metaPaths.add(fileName);
+			
+			size += status[i].getLen();
 		}
 
+		System.out.println("size : " + size);
 		return metaPaths;
 	}
 }

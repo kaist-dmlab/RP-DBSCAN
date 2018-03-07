@@ -182,13 +182,15 @@ public class Methods implements Serializable {
 		private int dim = 0;
 		private float levelpSideLen = 0;
 		private int metaBlockWindow = 0;
+		private String pairOutputPath = null;
 		
-		public PseudoRandomPartition(int dim, float epsilon, float p, int metaBlockWindow) {
+		public PseudoRandomPartition(int dim, float epsilon, float p, int metaBlockWindow, String pairOutputPath) {
 			// TODO Auto-generated constructor stub
 			this.dim = dim;
 		    int LOWEST_LEVEL = (int)(Math.ceil(1 - Math.log10(p)/Math.log10(2)));
 		    this.levelpSideLen = epsilon / ((float)Math.sqrt(dim) * (1 << LOWEST_LEVEL-1));
 		    this.metaBlockWindow = metaBlockWindow;
+		    this.pairOutputPath = pairOutputPath;
 		}
 		
 		@Override
@@ -206,10 +208,14 @@ public class Methods implements Serializable {
 				{
 					ApproximatedPoint apprPt = new ApproximatedPoint(pt.id, pt.coords);
 					map.put(lvH, apprPt);
-					apprPt.ptsIds = new ArrayList<Long>();
+					
+					if(pairOutputPath != null)
+						apprPt.ptsIds = new ArrayList<Long>();
 				}
 				map.get(lvH).count++;
-				map.get(lvH).ptsIds.add(pt.id);
+				
+				if(pairOutputPath != null)
+					map.get(lvH).ptsIds.add(pt.id);
 			}
 
 			ApproximatedCell cell = new ApproximatedCell(pts._1);
@@ -745,7 +751,8 @@ public class Methods implements Serializable {
 							closest = neighbor.lv_p_kdtree.cloestNode(node.coords,sqr_r);
 						
 						if(node == null || closest == null || Norm.sqr_L2_norm(node.coords, closest.coords) <= sqr_r)
-							edges.add(edge);
+								edges.add(edge);
+						
 					}
 				}
 				meta = null;

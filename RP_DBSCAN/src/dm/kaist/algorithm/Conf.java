@@ -57,6 +57,10 @@ public final class Conf  implements Serializable{
 			System.out.println(" -bs : the block size for virtually combining two-level cell dictionary (default : 1).");
 			System.out.println(" -l : the hdfs path to write labeled points, <point id, cluster label> (default : no output).");
 			System.exit(1);
+		}else if(rho < 0.009999)
+		{
+			System.out.println("This version deos not support rho < 0.01!. We recommend you to set rho = 0.02 or 0.01 for accuracy.");
+			System.exit(1);
 		}
 	}
 
