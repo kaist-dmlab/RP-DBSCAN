@@ -4,6 +4,7 @@
 
 ## *** Note ***
 One comment to use RP-DBSCAN is that "do not use too small value as the epsilon parameter". If you set too small value, there is no benefit from cell-based random partitioning because each data point regards as a cell. This problem may degrade the performance of RP-DBSCAN by inducing a significant number of edges between cells. Thus, please carefully set the epsilone value. In my opinion, we don't need to set the epsilon value to be too small when handling large data set; it causes too many clusters to be obtained as the result.
+
 Also, be careful to set the Spark configuration such as # worker, memory size, etc. Because RP-DBSCAN is distributed algorithm based on Spark, its performance is somewhat dependent on the configuration.
 
 ## 1. Overview
